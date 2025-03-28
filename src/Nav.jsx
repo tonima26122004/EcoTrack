@@ -7,14 +7,14 @@ const Nav = () => {
 
   return (
     <div>
-      <div className="flex justify-between px-8 py-6 items-center">
+      <div className="flex justify-between w-[97%] mx-auto py-6 items-center">
 
         <div>
           <img src="logo.svg" alt="Logo" />
         </div>
 
         <div className="relative w-[35%]">
-          <ul className="flex text-2xl bg-[#F1FCF3] px-1 py-1 items-center rounded-full relative w-full">
+          <ul className="flex text-xl bg-[#F1FCF3] px-1 py-1 items-center rounded-full relative w-full">
             <div
               className="absolute top-0 bottom-0 w-1/3 rounded-full bg-black transition-all duration-300"
               style={{
