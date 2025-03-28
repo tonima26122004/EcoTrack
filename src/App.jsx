@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Chat from './components/chat/Chat';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='bg-black'>
-      <h1 className=' font-lato text-2xl text-amber-50'>Hello world</h1>
-    </div>
-  )
+    <>
+      <Router>
+        <Routes>
+          <Route path="/chat" element={<Chat />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
-export default App
+export default App;
+
