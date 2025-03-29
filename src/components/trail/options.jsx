@@ -8,7 +8,7 @@ const RegionSelector = () => {
   const [country, setCountry] = useState("India");
 
   return (
-    <div className="p-6 sm:p-8 rounded-lg w-full max-w-3xl text-[#1D3B1F] text-base mx-auto">
+    <div className="p-6 sm:p-2 rounded-lg w-full max-w-3xl text-[#1D3B1F] text-base mx-auto">
       {/* Product Selector */}
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 text-lg">
         <span>Find nearest store for:</span>
@@ -23,9 +23,9 @@ const RegionSelector = () => {
       </div>
 
       {/* Region Selector */}
-      <div className="flex flex-col sm:flex-row items-center border border-[#1D3B1F] rounded-lg sm:rounded-full shadow-md w-full sm:w-full mx-auto ">
+      <div className="flex flex-col sm:flex-row items-center h-14 border border-[#1D3B1F] rounded-lg sm:rounded-full shadow-md w-full sm:w-full mx-auto">
         {/* Select Region Button */}
-        <button className="bg-[#1D3B1F] text-white px-6 py-3 text-lg sm:rounded-l-full rounded-none w-full sm:w-auto">
+        <button className="bg-[#1D3B1F] text-white px-6 h-14 text-lg sm:rounded-l-full rounded-none w-52 sm:w-60">
           Select Region:
         </button>
 
@@ -37,9 +37,9 @@ const RegionSelector = () => {
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="text-green-600 focus:outline-none text-lg w-full sm:w-auto border border-gray-300 rounded-md p-2"
+                className="text-green-600 focus:outline-none text-lg w-full sm:w-auto"
               >
-                <option>Kolkata</option>
+                <option className="bg-white">Kolkata</option>
                 <option>Mumbai</option>
                 <option>Delhi</option>
               </select>
@@ -50,9 +50,9 @@ const RegionSelector = () => {
               <select
                 value={state}
                 onChange={(e) => setState(e.target.value)}
-                className="text-green-600 focus:outline-none text-lg w-full sm:w-auto border border-gray-300 rounded-md p-2"
+                className="text-green-600 focus:outline-none text-lg w-full sm:w-auto"
               >
-                <option>West Bengal</option>
+                <option className="bg-white">West Bengal</option>
                 <option>Maharashtra</option>
                 <option>Delhi</option>
               </select>
@@ -63,9 +63,9 @@ const RegionSelector = () => {
               <select
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="text-green-600 focus:outline-none text-lg w-full sm:w-auto border border-gray-300 rounded-md p-2"
+                className="text-green-600 focus:outline-none text-lg w-full sm:w-auto"
               >
-                <option>India</option>
+                <option className="bg-white">India</option>
                 <option>USA</option>
               </select>
             </div>

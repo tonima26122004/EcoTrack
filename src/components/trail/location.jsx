@@ -26,16 +26,7 @@ const StoreLocator = () => {
         phone: "+91 4841684565",
         address: "Samukpota, Bishnupur, Kolkata, West Bengal",
       },
-      {
-        name: "Green Mall",
-        phone: "+91 4841684565",
-        address: "Samukpota, Bishnupur, Kolkata, West Bengal",
-      },
-      {
-        name: "Green Mall",
-        phone: "+91 4841684565",
-        address: "Samukpota, Bishnupur, Kolkata, West Bengal",
-      },
+    
   ];
 
   // Function to open Google Maps with user's current location
