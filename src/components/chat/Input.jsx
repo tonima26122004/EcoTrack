@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, setIsInputMoved }) => {
+const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, setIsInputMoved, setUploadedImage }) => {
     const [image, setImage] = useState(null);
     const [imageName, setImageName] = useState('');
     const [isImageUploaded, setIsImageUploaded] = useState(false);
@@ -9,7 +9,9 @@ const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setImage(URL.createObjectURL(file));
+            const imageURL = URL.createObjectURL(file);
+            setImage(imageURL);
+            setUploadedImage(imageURL); // Pass image to parent
             setImageName(file.name);
             setIsImageUploaded(true);
             console.log("Image uploaded:", file.name);
@@ -21,7 +23,9 @@ const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, 
         e.preventDefault();
         const file = e.dataTransfer.files[0];
         if (file) {
-            setImage(URL.createObjectURL(file));
+            const imageURL = URL.createObjectURL(file);
+            setImage(imageURL);
+            setUploadedImage(imageURL); // Pass image to parent
             setImageName(file.name);
             setIsImageUploaded(true);
             console.log("Image dropped and uploaded:", file.name);
@@ -45,6 +49,8 @@ const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, 
     // Handle send button click
     const handleSend = () => {
         console.log("Send button clicked.");
+        setImage(null); // Hide uploaded image in input section
+        setImageName('');
         getans();
         setIsQuerySubmitted(true);
         setIsInputMoved(true);
@@ -52,11 +58,13 @@ const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, 
 
     return (
         <div className="w-full px-2 sm:px-4">
-            <div className="w-1/3 border-2 border-[#082B13] bg-[#F1FCF3] rounded-md flex justify-center items-center max-h-[250px] overflow-hidden">
-                {image && (
+            {/* Uploaded Image Preview */}
+            {image && (
+                <div className="w-1/3 border-2 border-[#082B13] bg-[#F1FCF3] rounded-md flex justify-center items-center max-h-[250px] overflow-hidden mb-4">
                     <img src={image} alt="Uploaded Preview" className="rounded-md max-h-full max-w-full object-contain" />
-                )}
-            </div>
+                </div>
+            )}
+
             <div className="relative w-full p-0 mt-0" onDrop={handleDrop} onDragOver={handleDragOver}>
                 {/* Input Field */}
                 <div className="relative w-full">
