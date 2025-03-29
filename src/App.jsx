@@ -20,6 +20,7 @@ function App() {
       <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />
       <Route path="/ecotalk_diesease" element={<Ecotalk_diesease />} />
       <Route path="/ecotalk_identification" element={<Ecotalk_identification />} />
+      
 
     </Routes>
   </Router>
