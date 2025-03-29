@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase"; // Import Firebase auth
 
 const Uregister = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +11,27 @@ const Uregister = () => {
     confirmPassword: "",
   });
 
+  const [error, setError] = useState(""); // State to store error messages
+  const navigate = useNavigate(); // Hook for navigation
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSignUp = async () => {
+    setError(""); // Clear previous errors
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
+    try {
+      await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      navigate("/Chat"); // Redirect to Chat page after successful signup
+    } catch (error) {
+      setError(error.message); // Display Firebase error messages
+    }
   };
 
   return (
@@ -22,6 +44,8 @@ const Uregister = () => {
           <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800">Get Started</h2>
             <p className="text-gray-500 mb-4">Create your account now</p>
+
+            {error && <p className="text-red-500 text-center">{error}</p>} {/* Error Message */}
 
             {/* Full Name */}
             <label className="block text-gray-700 font-medium">Full Name:</label>
@@ -66,11 +90,12 @@ const Uregister = () => {
             />
 
             {/* Sign Up Button */}
-            <a href="/Chat">
-              <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-                Sign up →
-              </button>
-            </a>
+            <button
+              onClick={handleSignUp}
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+            >
+              Sign up →
+            </button>
 
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">

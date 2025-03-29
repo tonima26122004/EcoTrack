@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase"; // Import Firebase auth
 
 const Ulogin = () => {
   const [formData, setFormData] = useState({
@@ -7,9 +10,23 @@ const Ulogin = () => {
     rememberMe: false,
   });
 
+  const [error, setError] = useState(""); // State to store error messages
+  const navigate = useNavigate(); // Hook for navigation
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
+  };
+
+  const handleLogin = async () => {
+    setError(""); // Clear previous errors
+
+    try {
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      navigate("/Chat"); // Redirect to Chat page after successful login
+    } catch (error) {
+      setError("Invalid email or password. Please try again."); // Display error message
+    }
   };
 
   return (
@@ -22,6 +39,8 @@ const Ulogin = () => {
           <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800 text-center">Welcome Back</h2>
             <p className="text-gray-500 mb-4 text-center">Sign in to your account now</p>
+
+            {error && <p className="text-red-500 text-center">{error}</p>} {/* Error Message */}
 
             {/* Email */}
             <label className="block text-gray-700 font-medium">E-mail:</label>
@@ -58,11 +77,12 @@ const Ulogin = () => {
             </div>
 
             {/* Log In Button */}
-            <a href="/Chat">
-              <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-                Log in →
-              </button>
-            </a>
+            <button
+              onClick={handleLogin}
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+            >
+              Log in →
+            </button>
 
             {/* Sign Up Option */}
             <p className="text-center mt-3 text-gray-600">
