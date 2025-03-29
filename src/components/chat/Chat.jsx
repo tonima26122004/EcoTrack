@@ -7,7 +7,7 @@ const Chat = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   return (
-    <div className='bg-[#C0F2CB] min-h-screen font-lato px-4'>
+    <div className='bg-[#C0F2CB]  min-h-screen font-lato px-4'>
       <Nav />
 
       <div className='bg-[#F1FCF3] rounded-2xl min-h-[85vh] w-[97%] mx-auto flex flex-col items-center justify-center relative p-4'>
