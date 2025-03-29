@@ -2,14 +2,34 @@ import React, { useState } from 'react';
 
 const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, setIsInputMoved }) => {
     const [image, setImage] = useState(null);
+    const [imageName, setImageName] = useState('');
+    const [isImageUploaded, setIsImageUploaded] = useState(false);
 
     // Handle image upload from file input
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
             setImage(URL.createObjectURL(file));
+            setImageName(file.name);
+            setIsImageUploaded(true);
             console.log("Image uploaded:", file.name);
         }
+    };
+
+    // Handle drag and drop
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file) {
+            setImage(URL.createObjectURL(file));
+            setImageName(file.name);
+            setIsImageUploaded(true);
+            console.log("Image dropped and uploaded:", file.name);
+        }
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
     };
 
     // Handle image capture from camera
@@ -32,19 +52,30 @@ const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, 
 
     return (
         <div className="w-full px-2 sm:px-4">
-            <div className="relative w-full">
+            {isImageUploaded && (
+                <style>{`.main_content { display: none; }`}</style>
+            )}
+            {image && (
+                <div className="w-1/3 mb-4 mx-auto">
+                    <img src={image} alt="Uploaded Preview" className="rounded-md max-w-full h-auto" />
+                </div>
+            )}
+            <div 
+                className="relative w-full p-4" 
+                onDrop={handleDrop} 
+                onDragOver={handleDragOver}
+            >
                 {/* Input Field */}
                 <input
                     type="text"
-                    value={que}
-                    onChange={(e) => setque(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                    placeholder="Enter Your Query here"
+                    value={imageName}
+                    placeholder="Upload your image here"
                     className="px-4 py-2 border-2 font-libra outline-0 border-[#082B13] rounded-md w-full pr-[110px] sm:pr-[150px] md:pr-[180px] text-sm sm:text-base"
+                    disabled
                 />
 
                 {/* Buttons Container */}
-                <div className="absolute inset-y-0 right-0 flex items-center gap-2 sm:gap-4  ">
+                <div className="absolute inset-y-0 right-0 flex items-center gap-2 sm:gap-4">
                     {/* Upload Button */}
                     <input type="file" onChange={handleImageUpload} className="hidden" id="image-upload" />
                     <label htmlFor="image-upload" className="py-1 rounded-md cursor-pointer">
@@ -57,7 +88,7 @@ const AnimatedInputBox = ({ addQuery, getans, setque, que, setIsQuerySubmitted, 
                     </button>
 
                     {/* Send Button */}
-                    <button onClick={handleSend} className="py-2 sm:py-3 bg-[#082B13] rounded-md px-4 min-h-full  sm:px-6 ">
+                    <button onClick={handleSend} className="py-2 sm:py-3 bg-[#082B13] rounded-md px-4 sm:px-4">
                         <img className="w-5 sm:w-6" src="send.svg" alt="Send" />
                     </button>
                 </div>
