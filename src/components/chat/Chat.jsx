@@ -4,7 +4,6 @@ import Card from './Card';
 import AnimatedInputBox from './Input';
 import Chat_display from './Chat_display';
 
-
 const Chat = () => {
   const [showChatDisplay, setShowChatDisplay] = useState(false);
   const [ans, setAns] = useState([]);
@@ -15,8 +14,9 @@ const Chat = () => {
   };
 
   return (
-    <div className='bg-[#C0F2CB] h-screen font-lato'>
+    <div className='bg-[#C0F2CB] min-h-screen font-lato px-4'>
       <Nav />
+<<<<<<< HEAD
       <div className='bg-[#F1FCF3] rounded-2xl h-[85%] w-[97%] mx-auto flex flex-col items-center justify-center relative'>
 {/* 
         {showChatDisplay ? (
@@ -26,24 +26,44 @@ const Chat = () => {
             <div className="flex flex-col items-center gap-2">
               <h1 className='text- text-[#575B58]'>Welcome to EcoTalk</h1>
               <h1 className='text-5xl font-semibold'>What Eco-Friendly Solution <br />
+=======
+      <div className='bg-[#F1FCF3] rounded-2xl min-h-[85vh] w-full max-w-6xl mx-auto flex flex-col items-center justify-center relative p-4'>
+        {showChatDisplay ? (
+          <Chat_display ans={ans} displaybutton={true} />
+        ) : (
+          <div className='flex flex-col items-center text-center w-full max-w-3xl'>
+            <div className="flex flex-col items-center gap-2">
+              <h1 className='text-lg text-[#575B58]'>Welcome to EcoTalk</h1>
+              <h1 className='text-2xl sm:text-4xl font-semibold'>What Eco-Friendly Solution <br />
+>>>>>>> f0750026c509c6c056c9fe71e7baf5622f6a2fe1
                 Do You Need?</h1>
-              <h1 className='text-lg px-3 mt-2 text-[#575B58]'>
+              <h1 className='text-sm sm:text-lg px-3 mt-2 text-[#575B58]'>
                 Choose a category to access in-depth analysis, gain valuable insights, 
                 and discover innovative solutions that promote sustainability, 
                 enhance environmental awareness, and support informed decision-making 
                 for a greener and healthier future.
               </h1>
             </div>
+<<<<<<< HEAD
 
             <div className='flex justify-center gap-6 mt-8 '>
               <Card imageSrc="https://via.placeholder.com/150" heading="Carbon Footprint " />
+=======
+            <div className='flex flex-wrap justify-center gap-6 mt-8'>
+              <Card imageSrc="https://via.placeholder.com/150" heading="Carbon Footprint" />
+>>>>>>> f0750026c509c6c056c9fe71e7baf5622f6a2fe1
               <Card imageSrc="https://via.placeholder.com/150" heading="Plant-Based Remedies" />
               <Card imageSrc="https://via.placeholder.com/150" heading="Sustainable Living" />
             </div>
           </div>
+<<<<<<< HEAD
         
 
         <div className='absolute bottom-4 w-[97%]'>
+=======
+        )}
+        <div className='absolute bottom-4 w-full max-w-4xl'>
+>>>>>>> f0750026c509c6c056c9fe71e7baf5622f6a2fe1
           {/* <AnimatedInputBox getans={handleSendClick} /> */}
         </div>
       </div>
