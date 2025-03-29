@@ -7,12 +7,14 @@ import Ecotalk_diesease from './components/chat/Ecotalk_diesease';
 import Ecotalk_identification from './components/chat/Ecotalk_identification';
 import Forum from './components/forum/forum';
 import Login from './components/authentication/login/login';
+import Fregister from './components/authentication/farmeregister/farmer_register';
 function App() {
   return (
 
 <div>
   <Router>
     <Routes>
+      <Route path="/fregister" element={<Fregister />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/login" element={<Login />} />
       <Route path="/trail" element={<Trail />} />
