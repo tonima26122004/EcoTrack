@@ -1,12 +1,27 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import React, { useState } from 'react'; // Added useState import
+import { useNavigate } from 'react-router-dom';
 import Nav from '../../Nav';
 import Card from './Card';
-import LocationInputBox from './Location_input';
-import Diesease_display from './diesease_diaplay';
+import Identification_display from './identification_disaplay'
+import AnimatedInputBox from './Input';
 
 const Ecotalk_identification = () => {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
+  const [isQuerySubmitted, setIsQuerySubmitted] = useState(false);
+
+  const [que, setQue] = useState('');
+  
+  const [isInputMoved, setIsInputMoved] = useState(false);
+  const [queries, setQueries] = useState([]);
+
+  const addQuery = (query) => {
+    setQueries([...queries, query]);
+  };
+
+  const getans = () => {
+    console.log("Fetching answer for:", que);
+    setIsQuerySubmitted(true);
+  };
 
   return (
     <div className='bg-[#C0F2CB] min-h-screen font-lato px-4'>
@@ -14,7 +29,7 @@ const Ecotalk_identification = () => {
 
       <div className='bg-[#F1FCF3] rounded-2xl min-h-[85vh] w-[97%] mx-auto flex flex-col items-center justify-center relative p-4'>
        
-       <div><Diesease_display/></div>
+       <div><Identification_display /></div>
         <div className='flex flex-col items-center text-center w-full max-w-4xl main_content'>
           <div className='flex flex-col items-center gap-2'>
             <h1 className='text-lg text-[#575B58] font-lato'>Welcome to EcoTalk</h1>
@@ -30,17 +45,22 @@ const Ecotalk_identification = () => {
             </h1>
           </div>
 
-          {/* Placeholder for maintaining spacing where the cards were */}
           <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8 min-h-[150px]'>
-            {/* This div preserves the layout and spacing without displaying cards */}
           </div>
-
         </div>
 
         <div className='w-full absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center'>
-          <LocationInputBox />
         </div>
-
+        <div className="w-full max-w-[95%] absolute bottom-4 mt-6">
+          <AnimatedInputBox 
+            addQuery={addQuery} 
+            getans={getans} 
+            setque={setQue} // Corrected from setque to setQue
+            que={que} 
+            setIsQuerySubmitted={setIsQuerySubmitted} 
+            setIsInputMoved={setIsInputMoved} 
+          />
+        </div>
       </div>
     </div>
   );
