@@ -13,12 +13,13 @@ const Fregister = () => {
   };
 
   return (
-    <div className="h-full w-full absolute bg-gradient-to-t from-transparent to-[#C0F2CB]">
-      <div>
-        <img src="logo.svg" alt="Logo" className="m-8" />
+    <div className="h-full w-full flex flex-wrap lg:flex-nowrap absolute bg-gradient-to-t from-transparent to-[#C0F2CB] p-6">
+      {/* Left Section */}
+      <div className="w-full lg:1/3 flex flex-col ">
+        <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
-        <div className="flex  items-center m-8 ">
-          <div className="bg-transparent border p-4 rounded-xl shadow-lg w-full min-w-2xl max-w-lg">
+        <div className="flex items-center w-full">
+          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800">Get Started</h2>
             <p className="text-gray-500 mb-4">Create your account now</p>
 
@@ -52,12 +53,10 @@ const Fregister = () => {
               onChange={handleChange}
               className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#082B13]"
             />
-            <span className="text-xs text-red-500">make a strong one</span>
+            <span className="text-xs text-red-500">Make a strong one</span>
 
             {/* Confirm Password */}
-            <label className="block mt-4 text-gray-700 font-medium">
-              Confirm Password:
-            </label>
+            <label className="block mt-4 text-gray-700 font-medium">Confirm Password:</label>
             <input
               type="password"
               name="confirmPassword"
@@ -74,7 +73,7 @@ const Fregister = () => {
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">
               Already have an account?{" "}
-              <a href="/login" className="text-[#082B13] font-semibold">
+              <a href="/flogin" className="text-[#082B13] font-semibold">
                 Log In
               </a>
             </p>
@@ -83,14 +82,28 @@ const Fregister = () => {
             <div className="mt-4 flex flex-col items-center">
               <span className="text-gray-500">or</span>
               <button className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-                  alt="Google"
-                  className="w-5 h-5"
-                />
+                <img src="google.svg" alt="Google" className="w-5 h-5" />
                 Sign up with Google
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Section */}
+      <div className="w-full flex items-center lg:ml-30 mt-10 lg:mt-0">
+        <div className="text-center">
+          <img
+            src="farmer.svg"
+            alt="Farmer Illustration"
+            className="w-72 sm:w-80 md:w-96 lg:w-auto mx-auto"
+          />
+          <div className="text-2xl sm:text-3xl font-semibold mt-4">
+            Access Your Green Hub
+          </div>
+          <div className="text-lg text-gray-700 mt-2">
+            Sign in to explore smart farming insights, plant care tips, and <br />
+            eco-friendly solutions—all in one place.
           </div>
         </div>
       </div>
