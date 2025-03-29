@@ -75,7 +75,7 @@ const Fregister = () => {
             {/* Sign Up Button */}
             <button
               onClick={handleSignUp}
-              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+              className="w-full bg-[#082B13] cursor-pointer text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Sign up →
             </button>
@@ -83,7 +83,7 @@ const Fregister = () => {
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">
               Already have an account?{" "}
-              <a href="/flogin" className="text-[#082B13] font-semibold">
+              <a href="/flogin" className="text-[#082B13] cursor-pointer font-semibold">
                 Log In
               </a>
             </p>
@@ -92,7 +92,7 @@ const Fregister = () => {
             <div className="mt-1 flex flex-col items-center">
               <span className="text-gray-500">or</span>
               <button className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
-                <img src="google.svg" alt="Google" className="w-5 h-5" />
+                <img src="google.svg" alt="Google" className="w-5 h-5 cursor-pointer" />
                 Sign up with Google
               </button>
             </div>

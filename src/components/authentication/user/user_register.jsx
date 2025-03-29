@@ -19,7 +19,7 @@ const Uregister = () => {
         <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
         <div className="flex items-center w-full">
-          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
+          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full ml-4 max-w-3xl">
             <h2 className="text-2xl font-semibold text-gray-800">Get Started</h2>
             <p className="text-gray-500 mb-4">Create your account now</p>
 
@@ -67,7 +67,7 @@ const Uregister = () => {
 
             {/* Sign Up Button */}
             <a href="/Chat">
-              <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
+              <button className="w-full bg-[#082B13] text-white mt-6 py-3 cursor-pointer rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
                 Sign up →
               </button>
             </a>
@@ -75,7 +75,7 @@ const Uregister = () => {
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">
               Already have an account?{" "}
-              <a href="/ulogin" className="text-[#082B13] font-semibold">
+              <a href="/ulogin" className="text-[#082B13] cursor-pointer font-semibold">
                 Log In
               </a>
             </p>

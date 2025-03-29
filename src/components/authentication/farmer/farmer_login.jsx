@@ -67,7 +67,7 @@ const Flogin = () => {
             {/* Log In Button */}
             <button
               onClick={handleLogin}
-              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+              className="w-full bg-[#082B13] cursor-pointer text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Log in →
             </button>
@@ -75,7 +75,7 @@ const Flogin = () => {
             {/* Sign Up Option */}
             <p className="text-center mt-3 text-gray-600">
               Don't have an account?{" "}
-              <a href="/fregister" className="text-[#082B13] font-semibold">
+              <a href="/fregister" className="text-[#082B13] font-semibold" cursor="pointer">
                 Sign Up
               </a>
             </p>

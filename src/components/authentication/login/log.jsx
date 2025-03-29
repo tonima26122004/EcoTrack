@@ -13,7 +13,7 @@ function Log() {
         
         {/* FarmMaster Login */}
         <a href="/flogin">
-          <button className="bg-[#082B13] text-white p-3 w-32 rounded-lg ml-52 mt-4 text-xl">
+          <button className="bg-[#082B13] cursor-pointer text-white p-3 w-32 rounded-lg ml-52 mt-4 text-xl">
             Login
           </button>
         </a>
@@ -22,7 +22,7 @@ function Log() {
 
         {/* FarmMaster Sign Up */}
         <a href="/fregister">
-          <button className="ml-60 text-xl text-[#2BA84A] underline">Sign Up</button>
+          <button className="ml-60 text-xl text-[#2BA84A] cursor-pointer underline">Sign Up</button>
         </a>
       </div>
 
@@ -39,7 +39,7 @@ function Log() {
         
         {/* LifeGrower Login */}
         <a href="/ulogin">
-          <button className="bg-[#082B13] text-white p-3 w-32 rounded-lg ml-52 mt-4 text-xl">
+          <button className="bg-[#082B13] cursor-pointer text-white p-3 w-32 rounded-lg ml-52 mt-4 text-xl">
             Login
           </button>
         </a>
@@ -48,7 +48,7 @@ function Log() {
 
         {/* LifeGrower Sign Up */}
         <a href="/uregister">
-          <button className="ml-60 text-xl text-[#2BA84A] underline">Sign Up</button>
+          <button className="ml-60 text-xl text-[#2BA84A] cursor-pointer underline">Sign Up</button>
         </a>
       </div>
     </div>

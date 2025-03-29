@@ -42,7 +42,7 @@ const MarketPrices = () => {
       <div className="bg-white p-4 rounded-lg">
       <div className="text-lg">Find Market Price for Your Product</div>
       <div className="flex items-center space-x-2 bg-white p-2 rounded-lg shadow-md w-full max-w-lg ">
-        <label className="font-semibold text-gray-700">Product:</label>
+        <label className="font-semibold  bg-[#082B13] text-white">Product:</label>
         <input
           type="text"
           value={product}
@@ -50,8 +50,8 @@ const MarketPrices = () => {
           className="flex-grow border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-400"
           placeholder="Enter product name..."
         />
-        <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
-          🔍
+        <button className="bg-[#082B13] text-white px-4 py-2 rounded-full">
+          <img src="search.svg" alt="Search" className="w-5 h-5" />
         </button>
       </div>
 
@@ -64,7 +64,7 @@ const MarketPrices = () => {
       {marketData.map((item, index) => (
         <div
           key={index}
-          className="bg-white border border-gray-200 p-4 rounded-lg shadow-md flex items-center space-x-4 mb-4"
+          className="flex items-center space-x-4 mb-4"
         >
           {/* Product Image */}
           <img
