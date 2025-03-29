@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Flogin = () => {
   const [formData, setFormData] = useState({
@@ -7,15 +8,21 @@ const Flogin = () => {
     rememberMe: false,
   });
 
+  const navigate = useNavigate(); // Hook for navigation
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
+  const handleLogin = () => {
+    navigate("/farmer"); // Navigate to the farmer page on login
+  };
+
   return (
     <div className="h-full w-full flex flex-wrap lg:flex-nowrap absolute bg-gradient-to-t from-transparent to-[#C0F2CB] p-6 min-h-screen">
       {/* Left Section */}
-      <div className="w-full lg:w-1/3 flex flex-col ">
+      <div className="w-full lg:w-1/3 flex flex-col">
         <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
         <div className="flex flex-grow justify-center items-center w-full">
@@ -58,7 +65,10 @@ const Flogin = () => {
             </div>
 
             {/* Log In Button */}
-            <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
+            <button
+              onClick={handleLogin}
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+            >
               Log in →
             </button>
 
@@ -90,9 +100,7 @@ const Flogin = () => {
             alt="Farmer Illustration"
             className="w-72 sm:w-80 md:w-96 lg:w-auto mx-auto"
           />
-          <div className="text-2xl sm:text-3xl font-semibold mt-4">
-            Access Your Green Hub
-          </div>
+          <div className="text-2xl sm:text-3xl font-semibold mt-4">Access Your Green Hub</div>
           <div className="text-lg text-gray-700 mt-2">
             Sign in to explore smart farming insights, plant care tips, and <br />
             eco-friendly solutions—all in one place.
