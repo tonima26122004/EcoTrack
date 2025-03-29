@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for naviga
 import Nav from '../../Nav';
 import Card from './Card';
 import LocationInputBox from './Location_input';
+import Diesease_display from './diesease_diaplay';
 
 const Ecotalk_identification = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -12,7 +13,9 @@ const Ecotalk_identification = () => {
       <Nav />
 
       <div className='bg-[#F1FCF3] rounded-2xl min-h-[85vh] w-[97%] mx-auto flex flex-col items-center justify-center relative p-4'>
-        <div className='flex flex-col items-center text-center w-full max-w-4xl'>
+       
+       <div><Diesease_display/></div>
+        <div className='flex flex-col items-center text-center w-full max-w-4xl main_content'>
           <div className='flex flex-col items-center gap-2'>
             <h1 className='text-lg text-[#575B58] font-lato'>Welcome to EcoTalk</h1>
             <h1 className='text-2xl sm:text-5xl font-semibold font-lato'>

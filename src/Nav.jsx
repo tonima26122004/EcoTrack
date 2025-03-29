@@ -34,7 +34,7 @@ const Nav = () => {
           <button className="absolute top-4 right-4 p-2" onClick={() => setMenuOpen(false)}>
             <img src="close-icon.svg" alt="Close" />
           </button>
-          <ul className="flex flex-col text-xl gap-4 mt-8">
+          <ul className="flex flex-col text-lg gap-4 mt-8">
             {buttons.map((btn) => (
               <button
                 key={btn}
