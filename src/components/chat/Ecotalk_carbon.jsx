@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Nav from '../../Nav';
-import AnimatedInputBox from './Input'; 
 import Carbon_display from './carbon_display';
 import LocationInputBox from './Location_input';
 

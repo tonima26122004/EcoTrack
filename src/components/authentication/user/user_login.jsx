@@ -15,7 +15,7 @@ const Ulogin = () => {
   return (
     <div className="h-full w-full flex flex-wrap lg:flex-nowrap absolute bg-gradient-to-t from-transparent to-[#C0F2CB] p-6 min-h-screen">
       {/* Left Section */}
-      <div className="w-full lg:w-1/3 flex flex-col ">
+      <div className="w-full lg:w-1/3 flex flex-col">
         <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
         <div className="flex flex-grow justify-center items-center w-full">
@@ -58,9 +58,11 @@ const Ulogin = () => {
             </div>
 
             {/* Log In Button */}
-            <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-              Log in →
-            </button>
+            <a href="/Chat">
+              <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
+                Log in →
+              </button>
+            </a>
 
             {/* Sign Up Option */}
             <p className="text-center mt-3 text-gray-600">
@@ -86,7 +88,7 @@ const Ulogin = () => {
       <div className="w-full lg:w-2/3 flex items-center justify-center mt-10 lg:mt-0">
         <div className="text-center">
           <img
-            src="user.svg"
+            src="medicine.svg"
             alt="Farmer Illustration"
             className="w-72 sm:w-80 md:w-96 lg:w-auto mx-auto"
           />

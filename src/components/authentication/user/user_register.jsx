@@ -18,8 +18,8 @@ const Uregister = () => {
       <div className="w-full lg:1/3 flex flex-col ">
         <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
-        <div className="flex  items-center w-full">
-          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full  max-w-2xl">
+        <div className="flex items-center w-full">
+          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800">Get Started</h2>
             <p className="text-gray-500 mb-4">Create your account now</p>
 
@@ -34,7 +34,7 @@ const Uregister = () => {
             />
 
             {/* Email */}
-            <label className="block mt-4 text-gray-700 font-medium">E-mail:</label>
+            <label className="block mt-1 text-gray-700 font-medium">E-mail:</label>
             <input
               type="email"
               name="email"
@@ -45,7 +45,7 @@ const Uregister = () => {
             />
 
             {/* Password */}
-            <label className="block mt-4 text-gray-700 font-medium">Password:</label>
+            <label className="block mt-1 text-gray-700 font-medium">Password:</label>
             <input
               type="password"
               name="password"
@@ -56,9 +56,7 @@ const Uregister = () => {
             <span className="text-xs text-red-500">Make a strong one</span>
 
             {/* Confirm Password */}
-            <label className="block mt-4 text-gray-700 font-medium">
-              Confirm Password:
-            </label>
+            <label className="block mt-1 text-gray-700 font-medium">Confirm Password:</label>
             <input
               type="password"
               name="confirmPassword"
@@ -68,9 +66,11 @@ const Uregister = () => {
             />
 
             {/* Sign Up Button */}
-            <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-              Sign up →
-            </button>
+            <a href="/Chat">
+              <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
+                Sign up →
+              </button>
+            </a>
 
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">
@@ -81,14 +81,10 @@ const Uregister = () => {
             </p>
 
             {/* Google Sign-up */}
-            <div className="mt-4 flex flex-col  items-center">
+            <div className="mt-4 flex flex-col items-center">
               <span className="text-gray-500">or</span>
               <button className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
-                <img
-                  src="google.svg"
-                  alt="Google"
-                  className="w-5 h-5"
-                />
+                <img src="google.svg" alt="Google" className="w-5 h-5" />
                 Sign up with Google
               </button>
             </div>
@@ -97,7 +93,7 @@ const Uregister = () => {
       </div>
 
       {/* Right Section */}
-      <div className="w-full  flex items-center lg:ml-30  mt-10 lg:mt-0">
+      <div className="w-full flex items-center lg:ml-30 mt-10 lg:mt-0">
         <div className="text-center">
           <img
             src="farmer.svg"
