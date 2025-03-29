@@ -11,6 +11,9 @@ import Fregister from './components/authentication/farmer/farmer_register';
 import Flogin from './components/authentication/farmer/farmer_login';
 import Uregister from './components/authentication/user/user_register';
 import Ulogin from './components/authentication/user/user_login';
+import Fnav from './components/farmer_console/fnav';
+import Farmer from './components/farmer_console/farmer';
+import MarketPrices from './components/farmer_console/market';
 function App() {
   return (
 
@@ -19,12 +22,14 @@ function App() {
     <Routes>
       <Route path="/fregister" element={<Fregister />} />
       <Route path="/flogin" element={<Flogin />} />
+      <Route path="/market" element={<MarketPrices />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/login" element={<Login />} />
       <Route path="/trail" element={<Trail />} />
       <Route path="/forum" element={<Forum />} />
       <Route path ="/uregister" element={<Uregister />} />
       <Route path="/ulogin" element={<Ulogin />} />
+      <Route path="/farmer" element={<Farmer />} />
       <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />
       <Route path="/ecotalk_diesease" element={<Ecotalk_diesease />} />
       <Route path="/ecotalk_identification" element={<Ecotalk_identification />} />
