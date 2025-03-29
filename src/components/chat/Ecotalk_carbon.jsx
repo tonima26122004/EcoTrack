@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Nav from '../../Nav';
 import AnimatedInputBox from './Input'; 
+import Carbon_display from './carbon_display';
+import LocationInputBox from './Location_input';
 
 const Ecotalk_carbon = () => {
   const [que, setQue] = useState('');
@@ -14,6 +16,7 @@ const Ecotalk_carbon = () => {
 
   const getans = () => {
     console.log("Fetching answer for:", que);
+    setIsQuerySubmitted(true); // Hide main content and show Carbon_display
   };
 
   return (
@@ -21,27 +24,31 @@ const Ecotalk_carbon = () => {
       <Nav />
 
       <div className='bg-[#F1FCF3] rounded-2xl min-h-[85vh] w-[97%] mx-auto flex flex-col items-center justify-center relative p-4'>
-        <div className='flex flex-col items-center text-center w-full max-w-4xl'>
-          <div className='flex flex-col items-center gap-2'>
-            <h1 className='text-lg text-[#575B58] font-lato'>Welcome to EcoTalk</h1>
-            <h1 className='text-2xl sm:text-5xl font-semibold font-lato'>
-              What Eco-Friendly Solution <br />
-              Do You Need?
-            </h1>
-            <h1 className='text-sm sm:text-lg px-3 mt-2 text-[#575B58] font-lato'>
-              Choose a category to access in-depth analysis, gain valuable insights, 
-              and discover innovative solutions that promote sustainability, 
-              enhance environmental awareness, and support informed decision-making 
-              for a greener and healthier future.
-            </h1>
+       
+        {isQuerySubmitted ? (
+          <Carbon_display />
+        ) : (
+          <div className='flex flex-col items-center text-center w-full max-w-4xl main_content'>
+            <div className='flex flex-col items-center gap-2'>
+              <h1 className='text-lg text-[#575B58] font-lato'>Welcome to EcoTalk</h1>
+              <h1 className='text-2xl sm:text-5xl font-semibold font-lato'>
+                What Eco-Friendly Solution <br />
+                Do You Need?
+              </h1>
+              <h1 className='text-sm sm:text-lg px-3 mt-2 text-[#575B58] font-lato'>
+                Choose a category to access in-depth analysis, gain valuable insights, 
+                and discover innovative solutions that promote sustainability, 
+                enhance environmental awareness, and support informed decision-making 
+                for a greener and healthier future.
+              </h1>
+            </div>
+            {/* Placeholder for maintaining spacing where the cards were */}
+            <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8 min-h-[150px]'></div>
           </div>
-
-          {/* Placeholder for maintaining spacing where the cards were */}
-          <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8 min-h-[150px]'></div>
-        </div>
+        )}
 
         {/* Input Box Section */}
-        <div className="w-full max-w-[95%] absolute bottom-4 mt-6">
+        {/* <div className="w-full max-w-[95%] absolute bottom-4 mt-6">
           <AnimatedInputBox 
             addQuery={addQuery} 
             getans={getans} 
@@ -50,9 +57,9 @@ const Ecotalk_carbon = () => {
             setIsQuerySubmitted={setIsQuerySubmitted} 
             setIsInputMoved={setIsInputMoved} 
           />
-        </div>
+        </div> */}
+        <div className='w-full'><LocationInputBox setIsQuerySubmitted={setIsQuerySubmitted} /> </div>
 
-        
       </div>
     </div>
   );
