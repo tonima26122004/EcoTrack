@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import Nav from '../../Nav';
-import Card from './Card';
+import LocationInputBox from './Location_input';
 
 const Ecotalk_diesease = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -30,7 +30,11 @@ const Ecotalk_diesease = () => {
           <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8 min-h-[150px]'>
             {/* This div preserves the layout and spacing without displaying cards */}
           </div>
+        </div>
 
+        {/* Centered Location Input Box */}
+        <div className='w-full absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center'>
+          <LocationInputBox />
         </div>
       </div>
     </div>
