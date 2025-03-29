@@ -6,7 +6,7 @@ import Ecotalk_carbon from './components/chat/Ecotalk_carbon';
 import Ecotalk_diesease from './components/chat/Ecotalk_diesease';
 import Ecotalk_identification from './components/chat/Ecotalk_identification';
 import Forum from './components/forum/forum';
-
+import Login from './components/authentication/login/login';
 function App() {
   return (
 
@@ -14,7 +14,7 @@ function App() {
   <Router>
     <Routes>
       <Route path="/chat" element={<Chat />} />
-
+      <Route path="/login" element={<Login />} />
       <Route path="/trail" element={<Trail />} />
       <Route path="/forum" element={<Forum />} />
       <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />

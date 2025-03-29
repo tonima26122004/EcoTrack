@@ -8,6 +8,7 @@ const RegionSelector = () => {
   const [country, setCountry] = useState("India");
 
   return (
+    <div className="h-full">
     <div className="p-6 sm:p-2 rounded-lg w-full max-w-3xl text-[#1D3B1F] text-base mx-auto">
       {/* Product Selector */}
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 text-lg">
@@ -77,6 +78,10 @@ const RegionSelector = () => {
           </button>
         </div>
       </div>
+      <div className="bg-[#C0F2CB] min-h-[500px] mt-4 sm:h-[80%] font-lato px-4 py-6 sm:py-8 rounded-xl w-full max-w-4xl mx-auto">
+      {/* Map content goes here */}
+    </div>
+    </div>
     </div>
   );
 };

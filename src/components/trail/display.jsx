@@ -1,7 +1,7 @@
 import React from 'react';
 import RegionSelector from './options';
 import StoreLocator from './location';
-import Map from './mapdisplay';
+
 
 function Display() {
   return (
@@ -10,7 +10,7 @@ function Display() {
         {/* Region Selector (doesn't shrink) */}
         <div className="w-full lg:w-auto">
           <RegionSelector />
-          <Map/>
+         
         </div>
         {/* Store Locator (takes remaining space) */}
         <div className="flex-grow w-full">
