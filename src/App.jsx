@@ -9,6 +9,7 @@ import Forum from './components/forum/forum';
 
 function App() {
   return (
+<<<<<<< HEAD
     <>
       <Router>
         <Routes>
@@ -23,8 +24,22 @@ function App() {
         </Routes>
       </Router>
     </>
+=======
+    <Router>
+      <Routes>
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />
+        <Route path="/ecotalk_diesease" element={<Ecotalk_diesease />} />
+        <Route path="/ecotalk_identification" element={<Ecotalk_identification />} />
+
+        {/* Eco-trail */}
+        <Route path="/trail" element={<Trail />} />
+
+
+      </Routes>
+    </Router>
+>>>>>>> cfae0394e2165a35a4da197a00373ede34bf2d9d
   );
 }
 
 export default App;
-
