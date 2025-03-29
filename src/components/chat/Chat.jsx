@@ -26,11 +26,11 @@ const Chat = () => {
             </h1>
           </div>
 
-          <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8'>
+          <div className='flex flex-wrap justify-center w-full gap-6 mt-8'>
             {[
               { src: 'Carbon Footprint.svg', title: 'Carbon Footprint Analysis for Daily Life', path: '/ecotalk_carbon' },
               { src: 'Carbon Footprint (1).svg', title: 'Plant Disease Detection and Diagnosis', path: '/ecotalk_diesease'},
-              { src: 'Carbon Footprint (2).svg', title: 'Plant Identification and Classification', path: '/ecotalk_identification' }
+              // { src: 'Carbon Footprint (2).svg', title: 'Plant Identification and Classification', path: '/ecotalk_identification' }
             ].map((item, index) => (
               <button 
                 key={index} 
