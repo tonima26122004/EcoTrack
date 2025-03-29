@@ -6,11 +6,11 @@ import AnimatedInputBox from './Input';
 
 const Ecotalk_diesease = () => {
   const [isQuerySubmitted, setIsQuerySubmitted] = useState(false);
-
   const [que, setQue] = useState('');
-  
   const [isInputMoved, setIsInputMoved] = useState(false);
   const [queries, setQueries] = useState([]);
+  const [isImageUploaded, setIsImageUploaded] = useState(false); 
+  const [uploadedImage, setUploadedImage] = useState(null); // Correctly defined image state
 
   const addQuery = (query) => {
     setQueries([...queries, query]);
@@ -18,7 +18,7 @@ const Ecotalk_diesease = () => {
 
   const getans = () => {
     console.log("Fetching answer for:", que);
-    setIsQuerySubmitted(true); // Hide main content and show Carbon_display
+    setIsQuerySubmitted(true); // Hide main content and show display box
   };
 
   return (
@@ -28,9 +28,9 @@ const Ecotalk_diesease = () => {
       <div className='bg-[#F1FCF3] rounded-2xl min-h-[85vh] w-[97%] mx-auto flex flex-col items-center justify-center relative p-4'>
         
         {isQuerySubmitted ? (
-          <Diesease_display />
+          <Diesease_display uploadedImage={uploadedImage} />
         ) : (
-          <div className='flex flex-col items-center text-center w-full max-w-4xl main_content'>
+          <div className={`flex flex-col items-center text-center w-full max-w-4xl main_content ${isImageUploaded ? 'opacity-50' : ''} ${isQuerySubmitted ? 'hidden' : ''}`}>
             <div className='flex flex-col items-center gap-2'>
               <h1 className='text-lg text-[#575B58] font-lato'>Welcome to EcoTalk</h1>
               <h1 className='text-2xl sm:text-5xl font-semibold font-lato'>
@@ -44,17 +44,9 @@ const Ecotalk_diesease = () => {
                 for a greener and healthier future.
               </h1>
             </div>
-            {/* Placeholder for maintaining spacing where the cards were */}
             <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8 min-h-[150px]'></div>
           </div>
         )}
-
-        {/* Centered Location Input Box */}
-        <div className='w-full absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center'>
-          {/* <LocationInputBox setIsQuerySubmitted={setIsQuerySubmitted} /> */}
-          
-
-        </div>
 
         <div className="w-full max-w-[95%] absolute bottom-4 mt-6">
           <AnimatedInputBox 
@@ -64,6 +56,8 @@ const Ecotalk_diesease = () => {
             que={que} 
             setIsQuerySubmitted={setIsQuerySubmitted} 
             setIsInputMoved={setIsInputMoved} 
+            setIsImageUploaded={setIsImageUploaded}
+            setUploadedImage={setUploadedImage} // Ensure this prop is passed
           />
         </div>
       </div>
