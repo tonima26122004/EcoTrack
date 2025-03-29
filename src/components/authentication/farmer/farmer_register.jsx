@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Fregister = () => {
   const [formData, setFormData] = useState({
@@ -8,8 +9,14 @@ const Fregister = () => {
     confirmPassword: "",
   });
 
+  const navigate = useNavigate(); // Hook for navigation
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSignUp = () => {
+    navigate("/farmer"); // Navigate to /farmer after sign-up
   };
 
   return (
@@ -34,7 +41,7 @@ const Fregister = () => {
             />
 
             {/* Email */}
-            <label className="block mt-4 text-gray-700 font-medium">E-mail:</label>
+            <label className="block mt-1 text-gray-700 font-medium">E-mail:</label>
             <input
               type="email"
               name="email"
@@ -45,7 +52,7 @@ const Fregister = () => {
             />
 
             {/* Password */}
-            <label className="block mt-4 text-gray-700 font-medium">Password:</label>
+            <label className="block mt-1 text-gray-700 font-medium">Password:</label>
             <input
               type="password"
               name="password"
@@ -56,7 +63,7 @@ const Fregister = () => {
             <span className="text-xs text-red-500">Make a strong one</span>
 
             {/* Confirm Password */}
-            <label className="block mt-4 text-gray-700 font-medium">Confirm Password:</label>
+            <label className="block mt-1 text-gray-700 font-medium">Confirm Password:</label>
             <input
               type="password"
               name="confirmPassword"
@@ -66,7 +73,10 @@ const Fregister = () => {
             />
 
             {/* Sign Up Button */}
-            <button className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
+            <button
+              onClick={handleSignUp}
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+            >
               Sign up →
             </button>
 
@@ -79,7 +89,7 @@ const Fregister = () => {
             </p>
 
             {/* Google Sign-up */}
-            <div className="mt-4 flex flex-col items-center">
+            <div className="mt-1 flex flex-col items-center">
               <span className="text-gray-500">or</span>
               <button className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
                 <img src="google.svg" alt="Google" className="w-5 h-5" />
