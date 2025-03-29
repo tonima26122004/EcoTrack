@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import Nav from '../../Nav';
 import Card from './Card';
+import LocationInputBox from './Location_input';
 
 const Ecotalk_identification = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -32,6 +33,11 @@ const Ecotalk_identification = () => {
           </div>
 
         </div>
+
+        <div className='w-full absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center'>
+          <LocationInputBox />
+        </div>
+
       </div>
     </div>
   );
