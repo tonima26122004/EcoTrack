@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Nav from '../../Nav';
 import Card from './Card';
 import Identification_display from './identification_disaplay'
-import AnimatedInputBox from './Input';
+
 
 const Ecotalk_identification = () => {
   const navigate = useNavigate();
