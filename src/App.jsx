@@ -20,22 +20,12 @@ function App() {
       <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />
       <Route path="/ecotalk_diesease" element={<Ecotalk_diesease />} />
       <Route path="/ecotalk_identification" element={<Ecotalk_identification />} />
+      
 
     </Routes>
   </Router>
 
-  <Router>
-    <Routes>
-      <Route path="/chat" element={<Chat />} />
-      <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />
-      <Route path="/ecotalk_diesease" element={<Ecotalk_diesease />} />
-      <Route path="/ecotalk_identification" element={<Ecotalk_identification />} />
-
-      {/* Eco-trail */}
-      <Route path="/trail" element={<Trail />} />
-
-    </Routes>
-  </Router>
+  
 </div>
   );
 }
