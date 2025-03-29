@@ -33,7 +33,6 @@ const DiseaseDisplay = () => {
             console.error("Error:", err);
         } finally {
             setLoading(false);
-            // Reset file input to allow re-uploading same file
             if (fileInputRef.current) fileInputRef.current.value = "";
         }
     };
@@ -45,27 +44,10 @@ const DiseaseDisplay = () => {
 
     return (
         <div className="w-full max-w-md mx-auto p-4">
-            <h1 className="text-xl font-bold text-[#082B13] mb-2">Plant Diagnosis Result</h1>
-            <p className="text-sm text-[#575B58] mb-4">Upload an image to detect disease.</p>
+            {/* <h1 className="text-xl font-bold text-[#082B13] mb-2">Plant Diagnosis Result</h1>
+            <p className="text-sm text-[#575B58] mb-4">Upload an image to detect disease.</p> */}
 
             <div className="flex flex-col items-center gap-4">
-                <input
-                    type="file"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                    id="image-upload"
-                    accept="image/*"
-                    ref={fileInputRef}
-                    disabled={loading}
-                />
-                <label 
-                    htmlFor="image-upload" 
-                    className={`cursor-pointer w-full text-center border-2 border-[#082B13] px-4 py-8 rounded-md 
-                        ${loading ? "bg-gray-100" : "hover:bg-gray-50"}`}
-                >
-                    {loading ? "Processing..." : "Upload your image here"}
-                </label>
-
                 {error && (
                     <div className="w-full p-2 bg-red-100 border border-red-400 text-red-700 rounded">
                         {error}
