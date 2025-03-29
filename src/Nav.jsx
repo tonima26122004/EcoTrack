@@ -28,7 +28,7 @@ const Nav = () => {
           </button>
            {/* Switch for Desktop */}
         </div>
-        
+       
         {/* Side Menu for Small Screens */}
         <div className={`fixed top-0 left-0 h-full w-3/4 max-w-sm bg-[#F1FCF3]  p-6 shadow-lg transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden z-50`}>
           <button className="absolute top-4 right-4 p-2" onClick={() => setMenuOpen(false)}>
