@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import Nav from '../../Nav';
 import Card from './Card';
 
-const Chat = () => {
+const Ecotalk_diesease = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   return (
@@ -26,20 +26,9 @@ const Chat = () => {
             </h1>
           </div>
 
-          <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8'>
-            {[
-              { src: 'Carbon Footprint.svg', title: 'Carbon Footprint Analysis for Daily Life', path: '/ecotalk_carbon' },
-              { src: 'Carbon Footprint (1).svg', title: 'Plant Disease Detection and Diagnosis', path: '/ecotalk_diesease'},
-              { src: 'Carbon Footprint (2).svg', title: 'Plant Identification and Classification', path: '/ecotalk_identification' }
-            ].map((item, index) => (
-              <button 
-                key={index} 
-                className='transition-transform transform hover:scale-105 duration-300'
-                onClick={() => navigate(item.path)} // Navigate to the respective path
-              >
-                <Card imageSrc={item.src} heading={item.title} />
-              </button>
-            ))}
+          {/* Placeholder for maintaining spacing where the cards were */}
+          <div className='flex flex-wrap justify-evenly w-full gap-6 mt-8 min-h-[150px]'>
+            {/* This div preserves the layout and spacing without displaying cards */}
           </div>
 
         </div>
@@ -48,4 +37,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Ecotalk_diesease;

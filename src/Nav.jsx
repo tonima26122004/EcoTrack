@@ -4,7 +4,7 @@ const Nav = () => {
   const [active, setActive] = useState('Eco-Talk');
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const buttons = ['Eco-Talk', 'Eco-Trail', 'Eco-Herb'];
+  const buttons = ['Eco-Talk', 'Eco-Trail', 'Eco-Forum', 'Eco-Herb'];
 
   return (
     <div>
@@ -38,16 +38,16 @@ const Nav = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="relative hidden md:flex md:w-[35%]">
+        <div className="relative hidden md:flex md:w-[50%]">
           <ul className="flex text-xl bg-[#F1FCF3] px-1 py-1 items-center rounded-full relative w-full">
             <div
-              className="absolute top-0 bottom-0 md:w-1/3 rounded-full bg-black transition-all duration-300"
-              style={{ left: `${buttons.indexOf(active) * 33.33}%` }}
+              className="absolute top-0 bottom-0 md:w-1/4 rounded-full bg-black transition-all duration-300"
+              style={{ left: `${buttons.indexOf(active) * 25}%` }}
             />
             {buttons.map((btn) => (
               <button
                 key={btn}
-                className={`relative z-10 w-1/3 py-2 text-center ${active === btn ? 'text-white' : 'text-black'}`}
+                className={`relative z-10 w-1/4 py-2 text-center ${active === btn ? 'text-white' : 'text-black'}`}
                 onClick={() => setActive(btn)}
               >
                 {btn}
