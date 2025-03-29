@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const [active, setActive] = useState('Eco-Talk');
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const buttons = ['Eco-Talk', 'Eco-Trail', 'Eco-Forum', 'Eco-Herb'];
+
+  const handleNavigation = (btn) => {
+    setActive(btn);
+    setMenuOpen(false); // Close mobile menu on selection
+
+    if (btn === 'Eco-Talk') navigate('/Chat');
+    else if (btn === 'Eco-Trail') navigate('/trail');
+    else if (btn === 'Eco-Forum') navigate('/forum');
+    else if (btn === 'Eco-Herb') navigate('/herb');
+  };
 
   return (
     <div>
@@ -14,10 +26,11 @@ const Nav = () => {
           <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
             <img src="menu-icon.svg" alt="Menu" />
           </button>
+           {/* Switch for Desktop */}
         </div>
-
+        
         {/* Side Menu for Small Screens */}
-        <div className={`fixed top-0 left-0 h-full w-3/4 max-w-sm bg-[#F1FCF3] p-6 shadow-lg transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden z-50`}>
+        <div className={`fixed top-0 left-0 h-full w-3/4 max-w-sm bg-[#F1FCF3] dark:bg-gray-700 p-6 shadow-lg transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden z-50`}>
           <button className="absolute top-4 right-4 p-2" onClick={() => setMenuOpen(false)}>
             <img src="close-icon.svg" alt="Close" />
           </button>
@@ -26,7 +39,7 @@ const Nav = () => {
               <button
                 key={btn}
                 className={`w-full py-2 text-left px-4 rounded-lg ${active === btn ? 'bg-black text-white' : 'text-black'}`}
-                onClick={() => { setActive(btn); setMenuOpen(false); }}
+                onClick={() => handleNavigation(btn)}
               >
                 {btn}
               </button>
@@ -40,15 +53,18 @@ const Nav = () => {
         {/* Desktop Navigation */}
         <div className="relative hidden md:flex md:w-[50%]">
           <ul className="flex text-xl bg-[#F1FCF3] px-1 py-1 items-center rounded-full relative w-full">
+            {/* Active Indicator (Sliding Black Bar) */}
             <div
-              className="absolute top-0 bottom-0 md:w-1/4 rounded-full bg-black transition-all duration-300"
-              style={{ left: `${buttons.indexOf(active) * 25}%` }}
+              className="absolute top-0 bottom-0 w-1/4 rounded-full bg-black transition-all duration-300"
+              style={{ transform: `translateX(${buttons.indexOf(active) * 100}%)` }}
             />
             {buttons.map((btn) => (
               <button
                 key={btn}
-                className={`relative z-10 w-1/4 py-2 text-center ${active === btn ? 'text-white' : 'text-black'}`}
-                onClick={() => setActive(btn)}
+                className={`relative z-10 w-1/4 py-2 text-center transition-all duration-300 ${
+                  active === btn ? 'text-white' : 'text-black'
+                }`}
+                onClick={() => handleNavigation(btn)}
               >
                 {btn}
               </button>
@@ -56,12 +72,13 @@ const Nav = () => {
           </ul>
         </div>
 
+        {/* User Info & Settings */}
         <div className="hidden md:flex items-center gap-6 bg-[#F1FCF3] rounded-full px-1 py-1">
           <div className='flex items-center gap-3 text-lg'>
             <img src="User.svg" alt="User" />
-            <p>Incsha leff</p>
+            <p>Incsha Leff</p>
           </div>
-          <div className='px-2 bg-[#C0F2CB] rounded-full flex justify-center items-center p-2 '>
+          <div className='px-2 bg-[#C0F2CB] rounded-full flex justify-center items-center p-2'>
             <button>
               <img src="settings.svg" alt="Settings" />
             </button>
