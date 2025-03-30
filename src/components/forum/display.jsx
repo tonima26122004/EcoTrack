@@ -4,16 +4,14 @@ import PostCard from "./card"; // Assuming card.jsx exports PostCard
 function Display() {
   return (
     
-      <div className="w-[95%] p-4 bg-white  rounded-xl max-h-[85vh]  mx-auto flex flex-col lg:flex-row shadow-md items-start overflow-y-auto">
+      <div className="w-[95%] p-4 bg-white rounded-xl min-h-[85vh]  mx-auto flex flex-col lg:flex-row shadow-md items-start">
         <div className="flex w-full flex-col lg:flex-row gap-6 lg:gap-10">
           {/* Region Selector (doesn't shrink) */}
           <div className="w-full lg:w-auto">
             {/* Region Selector Component (If applicable) */}
           </div>
           {/* Store Locator (takes remaining space) */}
-          <div className="flex-grow max-w-[60%] space-y-6 flex flex-col items-start  ">
-
-
+          <div className="flex-grow w-full space-y-6 flex flex-col items-start">
             {/* Displaying Three Post Cards */}
             <PostCard
               profilePic="profile.svg"

@@ -1,46 +1,64 @@
-import React, { useState, useEffect } from "react";
-import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import StoreLocator from "./location"; // Import StoreLocator
 
-// Fix for default marker icons
+// 🔹 Fix for default marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
+
+// 🔴 Custom Red Marker Icon
+const redMarkerIcon = new L.Icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+});
+
+// 🔹 Component to update map center dynamically (Only updates when necessary)
+const ChangeMapCenter = ({ center }) => {
+  const map = useMap();
+  map.setView(center, 13);
+  return null;
+};
 
 const RegionSelector = () => {
   const [product, setProduct] = useState("Carbon-Free Products");
-  const [city, setCity] = useState("Kolkata");
-  const [state, setState] = useState("West Bengal");
-  const [country, setCountry] = useState("India");
+
+  // Stores selection values
+  const [selectedLocation, setSelectedLocation] = useState({
+    city: "Kolkata",
+    state: "West Bengal",
+    country: "India",
+  });
+
+  // Stores confirmed values (only updates on search)
+  const [location, setLocation] = useState(selectedLocation);
   const [mapCenter, setMapCenter] = useState([22.5726, 88.3639]);
 
-  const stores = [
-    {
-      id: 1,
-      name: "Green Mail",
-      phone: "+91 4841684565",
-      address: "Samiopola, Bishnipur, Kolkata, West Bengal",
-      position: [22.5726, 88.3639]
-    },
-  ];
+  const cityCoordinates = {
+    Kolkata: [22.5726, 88.3639],
+    Mumbai: [19.076, 72.8777],
+    Delhi: [28.7041, 77.1025],
+  };
 
-  useEffect(() => {
-    const cityCoordinates = {
-      Kolkata: [22.5726, 88.3639],
-      Mumbai: [19.0760, 72.8777],
-      Delhi: [28.7041, 77.1025]
-    };
-    setMapCenter(cityCoordinates[city] || cityCoordinates.Kolkata);
-  }, [city]);
+  // 🔹 Function to update map only when search button is clicked
+  const handleSearch = () => {
+    setLocation(selectedLocation);
+    setMapCenter(cityCoordinates[selectedLocation.city] || cityCoordinates.Kolkata);
+  };
 
   return (
-    <div className="p-6 sm:p-2 rounded-lg w-full max-w-3xl text-[#1D3B1F] text-base mx-auto">
+    <div className="p-6 sm:p-2 flex space-x-15 rounded-lg w-full text-[#1D3B1F] text-base mx-auto">
       {/* Product Selection */}
+      <div>
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 text-lg">
         <span>Find nearest store for:</span>
         <select
@@ -63,8 +81,8 @@ const RegionSelector = () => {
             <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
               <label className="text-[#1D3B1F]">City:</label>
               <select
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                value={selectedLocation.city}
+                onChange={(e) => setSelectedLocation({ ...selectedLocation, city: e.target.value })}
                 className="text-green-600 focus:outline-none text-lg w-full sm:w-auto"
               >
                 <option>Kolkata</option>
@@ -75,8 +93,8 @@ const RegionSelector = () => {
             <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
               <label className="text-[#1D3B1F]">State:</label>
               <select
-                value={state}
-                onChange={(e) => setState(e.target.value)}
+                value={selectedLocation.state}
+                onChange={(e) => setSelectedLocation({ ...selectedLocation, state: e.target.value })}
                 className="text-green-600 focus:outline-none text-lg w-full sm:w-auto"
               >
                 <option>West Bengal</option>
@@ -87,8 +105,8 @@ const RegionSelector = () => {
             <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
               <label className="text-[#1D3B1F]">Country:</label>
               <select
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
+                value={selectedLocation.country}
+                onChange={(e) => setSelectedLocation({ ...selectedLocation, country: e.target.value })}
                 className="text-green-600 focus:outline-none text-lg w-full sm:w-auto"
               >
                 <option>India</option>
@@ -96,46 +114,39 @@ const RegionSelector = () => {
               </select>
             </div>
           </div>
-          <button className="p-3 text-[#1D3B1F] flex-shrink-0 bg-gray-200 rounded-full">
+          <button onClick={handleSearch} className="p-3 text-[#1D3B1F] flex-shrink-0 bg-gray-200 rounded-full">
             <FaSearch className="w-6 h-6" />
           </button>
         </div>
       </div>
 
-      {/* New Section: 'or' and 'Add Current Location' */}
-      <div className="flex items-center w-full gap-3 my-4">
-        {/* <span className="text-[#1D3B1F] text-lg">or</span> */}
-        {/* <button
-          className="flex items-center gap-2 bg-white border border-[#1D3B1F] text-[#1D3B1F] px-4 py-2 rounded-full shadow-md text-sm"
-        >
-          <FaMapMarkerAlt /> Add Your Current Location
-        </button> */}
-      </div>
-
       {/* Map Section */}
-      <div className="mt-6 bg-[#C0F2CB] rounded-xl overflow-hidden" style={{ height: '400px' }}>
-        <MapContainer
-          center={mapCenter}
-          zoom={13}
-          style={{ height: '100%', width: '100%' }}
-        >
+      <div className="mt-6 bg-[#C0F2CB] rounded-xl overflow-hidden" style={{ height: "500px" }}>
+        <MapContainer center={mapCenter} zoom={13} style={{ height: "100%", width: "100%" }}>
+          {/* 🔹 Update map center dynamically */}
+          <ChangeMapCenter center={mapCenter} />
+
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          {stores.map((store) => (
-            <Marker key={store.id} position={store.position}>
-              <Popup>
-                <div className="p-2">
-                  <h3 className="font-bold text-green-800">{store.name}</h3>
-                  <p className="text-sm">{store.phone}</p>
-                  <p className="text-sm mt-1">{store.address}</p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
+
+          {/* 🔴 Red Marker at Selected City */}
+          <Marker position={mapCenter} icon={redMarkerIcon}>
+            <Popup>
+              <div className="p-2">
+                <h3 className="font-bold text-red-800">{location.city}</h3>
+                <p className="text-sm">{location.state}, {location.country}</p>
+              </div>
+            </Popup>
+          </Marker>
         </MapContainer>
       </div>
+      </div>
+      <div>
+      {/* 🔹 Store Locator Component (Added here) */}
+      <StoreLocator selectedCity={location.city} />
+    </div>
     </div>
   );
 };
