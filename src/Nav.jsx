@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LanguageDropdown from './components/Lang';
 
 const Nav = () => {
   const [active, setActive] = useState('Eco-Talk');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
   const buttons = ['Eco-Talk', 'Eco-Trail', 'Eco-Forum', 'Eco-Herb', 'Eco-Chat'];
@@ -20,6 +22,23 @@ const Nav = () => {
     else if (btn === 'Eco-Chat') navigate('/Chatbot'); // New route for Eco-Chat
   };
 
+  const handleSignOut = () => {
+    console.log("Signing out...");
+    // Add sign-out logic here
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="w-[97%] mx-auto py-6">
       <div className="flex justify-between items-center">
@@ -33,10 +52,10 @@ const Nav = () => {
 
         {/* Desktop Navigation (Centered) */}
         <div className="hidden md:flex justify-center flex-1 ml-45">
-          <ul className="flex text-xl bg-[#F1FCF3] px-1 py-1 items-center rounded-full relative w-[70%] ml=10">
-            {/* Active Indicator (Sliding Black Bar) */}
+          <ul className="flex text-xl bg-[#F1FCF3] px-1 py-1 items-center rounded-full relative w-[70%]">
+            {/* Active Indicator (Smooth Slide Animation) */}
             <div
-              className="absolute top-0 bottom-0 w-1/5 rounded-full bg-black transition-all duration-300"
+              className="absolute top-0 bottom-0 w-1/5 rounded-full bg-black transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(${buttons.indexOf(active) * 100}%)` }}
             />
             {buttons.map((btn) => (
@@ -53,17 +72,37 @@ const Nav = () => {
           </ul>
         </div>
         <LanguageDropdown />
+
         {/* User Info & Settings */}
-        <div className="hidden md:flex items-center gap-6 bg-[#F1FCF3] rounded-full px-3 py-2 ml-4">
+        <div ref={dropdownRef} className="hidden md:flex items-center gap-6 bg-[#F1FCF3] rounded-full px-3 py-2 ml-4 relative">
           <div className="flex items-center gap-3 text-lg">
             <img src="User.svg" alt="User" />
             <p>Incsha Leff</p>
           </div>
-          <div className="px-2 bg-[#C0F2CB] rounded-full flex justify-center items-center p-2">
-            <button>
-              <img src="settings.svg" alt="Settings" />
-            </button>
-          </div>
+          
+          {/* Settings Button with Dropdown */}
+          <div className="hidden md:flex items-center gap-6 bg-[#F1FCF3] rounded-full px-3 py-2 ml-4 relative">
+  
+  
+  {/* Settings Button with Dropdown */}
+  <div className="relative">
+    <button
+      className="px-2 bg-[#C0F2CB] rounded-full flex justify-center items-center p-2"
+      onClick={() => setDropdownOpen(!dropdownOpen)}
+    >
+      <img src="settings.svg" alt="Settings" />
+    </button>
+    
+    {/* Dropdown Menu */}
+    {dropdownOpen && (
+      <div className="absolute right-0 mt-2 w-56 bg-white shadow-lg rounded-lg py-2 border border-gray-300">
+        <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 text-black whitespace-nowrap">Edit</button>
+        <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 text-black whitespace-nowrap">Sign Out</button>
+      </div>
+    )}
+  </div>
+</div>
+
         </div>
       </div>
 
