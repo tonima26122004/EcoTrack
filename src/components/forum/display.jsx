@@ -4,11 +4,24 @@ import PostCard from "./card"; // Assuming card.jsx exports PostCard
 function Display() {
   return (
     
+<<<<<<< HEAD
+      <div className="w-[95%] p-4 bg-white rounded-xl min-h-[85vh]  mx-auto flex flex-col lg:flex-row shadow-md items-start">
+        <div className="flex w-full flex-col lg:flex-row gap-6 lg:gap-10">
+          {/* Region Selector (doesn't shrink) */}
+          <div className="w-full lg:w-auto">
+            {/* Region Selector Component (If applicable) */}
+          </div>
+          {/* Store Locator (takes remaining space) */}
+          <div className="flex-grow w-full space-y-6 flex flex-col items-start">
+            {/* Displaying Three Post Cards */}
+            <PostCard
+=======
       <div className="w-[95%] p-4 bg-white  rounded-xl min-h-[85vh]  mx-auto flex flex-col lg:flex-row shadow-md items-start overflow-y-auto">
         
         <div className="w-[60%] flex flex-col gap-2">
           <h1 className="text-3xl mb-2">Community Posts:</h1> <hr className="max-w-[30%] mb-3" />
           <PostCard
+>>>>>>> 5401b35f0546ebe740294552739af7775f2b5447
               profilePic="profile.svg"
               name="Anna Smith"
               date="26 Mar, 2025"
