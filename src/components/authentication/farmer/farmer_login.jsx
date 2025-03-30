@@ -63,7 +63,7 @@ const Flogin = () => {
                 required
               />
 
-<<<<<<< HEAD
+
             {/* Log In Button */}
             <button
               onClick={handleLogin}
@@ -100,17 +100,17 @@ const Flogin = () => {
                 Log in →
               </button>
             </form>
->>>>>>> 33f0a961ca9a6e376a1317aad02898992394f254
+
 
             <p className="text-center mt-3 text-gray-600">
-<<<<<<< HEAD
+
               Don't have an account?{" "}
               <a href="/fregister" className="text-[#082B13] font-semibold" cursor="pointer">
                 Sign Up
               </a>
 =======
               Don't have an account? <a href="/fregister" className="text-[#082B13] font-semibold">Sign Up</a>
->>>>>>> 33f0a961ca9a6e376a1317aad02898992394f254
+
             </p>
 
             <div className="mt-4 flex flex-col items-center">
