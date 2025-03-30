@@ -14,6 +14,7 @@ import Ulogin from './components/authentication/user/user_login';
 import Fnav from './components/farmer_console/fnav';
 import Farmer from './components/farmer_console/farmer';
 import MarketPrices from './components/farmer_console/market';
+import Harb from './components/harb/Harb';
 function App() {
   return (
 
@@ -33,6 +34,7 @@ function App() {
       <Route path="/ecotalk_carbon" element={<Ecotalk_carbon />} />
       <Route path="/ecotalk_diesease" element={<Ecotalk_diesease />} />
       <Route path="/ecotalk_identification" element={<Ecotalk_identification />} />
+      <Route path="/herb" element={<Harb />} />
       
 
     </Routes>
