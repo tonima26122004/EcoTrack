@@ -21,7 +21,7 @@ const LocationInputBox = () => {
   return (
     <div className="flex flex-wrap sm:flex-nowrap items-center w-full bg-[#082B13] border-2 border-[#082B13] text-white rounded-md overflow-hidden">
       {/* Label */}
-      <div className="px-4 py-2 bg-[#082B13] text-white font-semibold text-sm sm:text-base">
+      <div className="px-4 py-2 bg-[#082B13] text-white  text-sm sm:text-base">
         Select Region:
       </div>
 
@@ -32,7 +32,7 @@ const LocationInputBox = () => {
         <select
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="text-green-600 font-semibold bg-transparent focus:outline-none text-xs sm:text-sm"
+          className="text-green-600 font-thin bg-transparent focus:outline-none text-xs sm:text-sm"
         >
           <option value="Kolkata">Kolkata</option>
           <option value="Mumbai">Mumbai</option>
@@ -44,7 +44,7 @@ const LocationInputBox = () => {
         <select
           value={state}
           onChange={(e) => setState(e.target.value)}
-          className="text-green-600 font-semibold bg-transparent focus:outline-none text-xs sm:text-sm"
+          className="text-green-600 font-thin bg-transparent focus:outline-none text-xs sm:text-sm"
         >
           <option value="West Bengal">West Bengal</option>
           <option value="Maharashtra">Maharashtra</option>
@@ -56,7 +56,7 @@ const LocationInputBox = () => {
         <select
           value={country}
           onChange={(e) => setCountry(e.target.value)}
-          className="text-green-600 font-semibold bg-transparent focus:outline-none text-xs sm:text-sm"
+          className="text-green-600 font-thin bg-transparent focus:outline-none text-xs sm:text-sm"
         >
           <option value="India">India</option>
           <option value="USA">USA</option>
