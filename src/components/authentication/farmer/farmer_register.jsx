@@ -117,6 +117,7 @@ const Fregister = () => {
 
 
 
+
             <p className="text-center mt-3 text-gray-600"></p>
 
               Already have an account?{" "}
@@ -125,7 +126,7 @@ const Fregister = () => {
               </a>
 
               Already have an account? <a href="/flogin" className="text-[#082B13] font-semibold">Log In</a>
-
+            </p>
 
             <p className="text-center mt-3 text-gray-600">
               Already have an account? <a href="/flogin" className="text-[#082B13] font-semibold">Log In</a>
@@ -134,6 +135,17 @@ const Fregister = () => {
 
             <div className="mt-1 flex flex-col items-center">
               <span className="text-gray-500">or</span>
+
+              <button onClick={handleGoogleSignUp} className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
+                <img src="google.svg" alt="Google" className="w-5 h-5" />
+
+
+
+             
+
+              <button onClick={handleGoogleSignUp} className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
+                <img src="google.svg" alt="Google" className="w-5 h-5" />
+              </button>
               <button onClick={handleGoogleSignUp} className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
                 <img src="google.svg" alt="Google" className="w-5 h-5" />
                 Sign up with Google
