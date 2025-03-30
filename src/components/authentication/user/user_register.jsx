@@ -37,7 +37,7 @@ const Uregister = () => {
   return (
     <div className="h-full w-full flex flex-wrap lg:flex-nowrap absolute bg-gradient-to-t from-transparent to-[#C0F2CB] p-6">
       {/* Left Section */}
-      <div className="w-full lg:1/3 flex flex-col ">
+      <div className="w-full lg:w-1/3 flex flex-col">
         <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
         <div className="flex items-center w-full">
@@ -90,20 +90,12 @@ const Uregister = () => {
             />
 
             {/* Sign Up Button */}
-<<<<<<< HEAD
-            <a href="/Chat">
-              <button className="w-full bg-[#082B13] text-white mt-6 py-3 cursor-pointer rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-                Sign up →
-              </button>
-            </a>
-=======
             <button
               onClick={handleSignUp}
-              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#0a3e1a]"
             >
               Sign up →
             </button>
->>>>>>> 33f0a961ca9a6e376a1317aad02898992394f254
 
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">
@@ -126,7 +118,7 @@ const Uregister = () => {
       </div>
 
       {/* Right Section */}
-      <div className="w-full flex items-center lg:ml-30 mt-10 lg:mt-0">
+      <div className="w-full lg:w-2/3 flex items-center justify-center mt-10 lg:mt-0">
         <div className="text-center">
           <img
             src="farmer.svg"
