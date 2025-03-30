@@ -90,26 +90,21 @@ const Uregister = () => {
             />
 
             {/* Sign Up Button */}
-<<<<<<< HEAD
+
 
             <a href="/Chat">
               <button className="w-full bg-[#082B13] text-white mt-6 py-3 cursor-pointer rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
                 Sign up →
               </button>
             </a>
-=======
-=======
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
+
             <button
               onClick={handleSignUp}
               className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Sign up →
             </button>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
 
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">

@@ -63,7 +63,7 @@ const Flogin = () => {
                 required
               />
 
-<<<<<<< HEAD
+
 
             {/* Log In Button */}
             <button
@@ -72,9 +72,7 @@ const Flogin = () => {
             >
               Log in →
             </button>
-=======
-=======
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
+
               <label className="block mt-4 text-gray-700 font-medium">Password:</label>
               <input
                 type="password"
@@ -103,7 +101,7 @@ const Flogin = () => {
                 Log in →
               </button>
             </form>
-<<<<<<< HEAD
+
 
 
             <p className="text-center mt-3 text-gray-600">
@@ -112,14 +110,13 @@ const Flogin = () => {
               <a href="/fregister" className="text-[#082B13] font-semibold" cursor="pointer">
                 Sign Up
               </a>
-=======
-              Don't have an account? <a href="/fregister" className="text-[#082B13] font-semibold">Sign Up</a>
 
-=======
+              Don't have an account? <a href="/fregister" className="text-[#082B13] font-semibold">Sign Up</a>
+</p>
 
             <p className="text-center mt-3 text-gray-600">
               Don't have an account? <a href="/fregister" className="text-[#082B13] font-semibold">Sign Up</a>
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
+
             </p>
 
             <div className="mt-4 flex flex-col items-center">
