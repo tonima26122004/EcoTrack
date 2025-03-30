@@ -7,7 +7,7 @@ const PostCard = ({ profilePic, name, date, title, content, initialUpvotes, init
   const [comment, setComment] = useState("");
 
   return (
-    <div className="bg-green-50 p-4 rounded-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 shadow-md max-w-2xl border border-green-100">
+    <div className="bg-green-50 p-4 rounded-lg w-full  shadow-md max-w-3xl border border-green-100">
       {/* Header */}
       <div className="flex items-center space-x-3">
         <img
