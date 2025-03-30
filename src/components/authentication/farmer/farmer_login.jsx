@@ -93,7 +93,10 @@ const Flogin = () => {
             </form>
 
             <p className="text-center mt-3 text-gray-600">
-              Don't have an account? <a href="/fregister" className="text-[#082B13] font-semibold">Sign Up</a>
+              Don't have an account?{" "}
+              <a href="/fregister" className="text-[#082B13] font-semibold">
+                Sign Up
+              </a>
             </p>
 
             <div className="mt-4 flex flex-col items-center">
