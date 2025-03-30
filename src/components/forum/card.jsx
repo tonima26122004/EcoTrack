@@ -7,7 +7,7 @@ const PostCard = ({ profilePic, name, date, title, content, initialUpvotes, init
   const [comment, setComment] = useState("");
 
   return (
-    <div className="bg-green-50 p-4 rounded-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 shadow-md max-w-2xl border border-green-100">
+    <div className="bg-green-50 p-4 rounded-lg w-full  shadow-md max-w-3xl border border-green-100">
       {/* Header */}
       <div className="flex items-center space-x-3">
         <img
@@ -43,13 +43,11 @@ const PostCard = ({ profilePic, name, date, title, content, initialUpvotes, init
           <FaArrowDown />
           <span>{downvotes.toLocaleString()}</span>
         </button>
-      </div>
 
-      {/* Comment Box */}
-      <div className="mt-3 flex items-center border border-green-300 rounded-full px-2 py-1 bg-white">
+        <div className="mt-3 flex w-full items-center border border-green-300 rounded-full px-2 py-1 bg-white">
         <input
           type="text"
-          className="flex-grow outline-none text-xs sm:text-sm p-2 bg-transparent"
+          className="flex-grow outline-none  text-xs sm:text-sm p-2 bg-transparent"
           placeholder="Add your comment"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
@@ -57,7 +55,11 @@ const PostCard = ({ profilePic, name, date, title, content, initialUpvotes, init
         <button className="bg-green-700 text-white p-2 w-8 sm:w-10 rounded-full hover:bg-green-800">
           ➤
         </button>
+      </div>  
       </div>
+
+      {/* Comment Box */}
+      
     </div>
   );
 };

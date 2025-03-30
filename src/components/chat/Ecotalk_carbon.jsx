@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Nav from '../../Nav';
-import Carbon_display from './carbon_display';
+// import Carbon_display from './carbon_display';
 import LocationInputBox from './Location_input';
 
 const Ecotalk_carbon = () => {
@@ -47,7 +47,7 @@ const Ecotalk_carbon = () => {
         )}
 
         {/* Input Box Section */}
-        {/* <div className="w-full max-w-[95%] absolute bottom-4 mt-6">
+        <div className="w-full max-w-[95%] absolute bottom-4 mt-6">
           <AnimatedInputBox 
             addQuery={addQuery} 
             getans={getans} 
@@ -56,7 +56,7 @@ const Ecotalk_carbon = () => {
             setIsQuerySubmitted={setIsQuerySubmitted} 
             setIsInputMoved={setIsInputMoved} 
           />
-        </div> */}
+        </div> 
         <div className='w-full'><LocationInputBox setIsQuerySubmitted={setIsQuerySubmitted} /> </div>
 
       </div>
