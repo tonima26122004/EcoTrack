@@ -76,27 +76,19 @@ const Ulogin = () => {
               <label className="ml-2 text-gray-700 font-medium">Remember Me</label>
             </div>
 
-            {/* Log In Button */}
-<<<<<<< HEAD
+
 
             <a href="/Chat">
-              <button className="w-full cursor-pointer bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-                Log in →
-              </button>
+              
             </a>
-=======
-=======
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
+
             <button
               onClick={handleLogin}
               className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Log in →
             </button>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
 
             {/* Sign Up Option */}
             <p className="text-center mt-3 text-gray-600">
