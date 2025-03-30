@@ -23,7 +23,7 @@ const Farmer = () => {
           </div>
           
         </div>
-        <div className='absolute bottom-0 w-[97%] m-6'>
+        <div className='absolute bottom-0 w-full'>
         <LocationInputBox />
         </div>
       </div>
