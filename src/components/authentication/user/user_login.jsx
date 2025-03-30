@@ -33,10 +33,10 @@ const Ulogin = () => {
     <div className="h-full w-full flex flex-wrap lg:flex-nowrap absolute bg-gradient-to-t from-transparent to-[#C0F2CB] p-6 min-h-screen">
       {/* Left Section */}
       <div className="w-full lg:w-1/3 flex flex-col">
-        <img src="logo.svg" alt="Logo" className="m-4 ml-4 w-32 sm:w-40 md:w-32" />
+        <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
         <div className="flex flex-grow justify-center items-center w-full">
-          <div className="bg-transparent border m-6 p-6 rounded-xl shadow-lg w-full max-w-4xl">
+          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800 text-center">Welcome Back</h2>
             <p className="text-gray-500 mb-4 text-center">Sign in to your account now</p>
 
@@ -79,7 +79,7 @@ const Ulogin = () => {
             {/* Log In Button */}
             <button
               onClick={handleLogin}
-              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#0a3e1a]"
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Log in →
             </button>
@@ -87,7 +87,7 @@ const Ulogin = () => {
             {/* Sign Up Option */}
             <p className="text-center mt-3 text-gray-600">
               Don't have an account?{" "}
-              <a href="/uregister" className="text-[#082B13] cursor-pointer font-semibold">
+              <a href="/uregister" className="text-[#082B13] font-semibold">
                 Sign Up
               </a>
             </p>
@@ -96,7 +96,7 @@ const Ulogin = () => {
             <div className="mt-4 flex flex-col items-center">
               <span className="text-gray-500">or</span>
               <button className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
-                <img src="google.svg" alt="Google" className="w-5 h-5 cursor-pointer" />
+                <img src="google.svg" alt="Google" className="w-5 h-5" />
                 Sign in with Google
               </button>
             </div>

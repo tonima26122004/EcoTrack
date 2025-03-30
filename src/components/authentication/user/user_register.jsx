@@ -37,11 +37,11 @@ const Uregister = () => {
   return (
     <div className="h-full w-full flex flex-wrap lg:flex-nowrap absolute bg-gradient-to-t from-transparent to-[#C0F2CB] p-6">
       {/* Left Section */}
-      <div className="w-full lg:w-1/3 flex flex-col">
+      <div className="w-full lg:1/3 flex flex-col ">
         <img src="logo.svg" alt="Logo" className="m-4 w-32 sm:w-40 md:w-32" />
 
         <div className="flex items-center w-full">
-          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full ml-4 max-w-3xl">
+          <div className="bg-transparent border p-6 rounded-xl shadow-lg w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800">Get Started</h2>
             <p className="text-gray-500 mb-4">Create your account now</p>
 
@@ -92,7 +92,7 @@ const Uregister = () => {
             {/* Sign Up Button */}
             <button
               onClick={handleSignUp}
-              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#0a3e1a]"
+              className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Sign up →
             </button>
@@ -100,7 +100,7 @@ const Uregister = () => {
             {/* Login Option */}
             <p className="text-center mt-3 text-gray-600">
               Already have an account?{" "}
-              <a href="/ulogin" className="text-[#082B13] cursor-pointer font-semibold">
+              <a href="/ulogin" className="text-[#082B13] font-semibold">
                 Log In
               </a>
             </p>
@@ -118,7 +118,7 @@ const Uregister = () => {
       </div>
 
       {/* Right Section */}
-      <div className="w-full lg:w-2/3 flex items-center justify-center mt-10 lg:mt-0">
+      <div className="w-full flex items-center lg:ml-30 mt-10 lg:mt-0">
         <div className="text-center">
           <img
             src="farmer.svg"

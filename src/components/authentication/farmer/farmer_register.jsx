@@ -106,10 +106,7 @@ const Fregister = () => {
             </form>
 
             <p className="text-center mt-3 text-gray-600">
-              Already have an account?{" "}
-              <a href="/flogin" className="text-[#082B13] font-semibold">
-                Log In
-              </a>
+              Already have an account? <a href="/flogin" className="text-[#082B13] font-semibold">Log In</a>
             </p>
 
             <div className="mt-1 flex flex-col items-center">
