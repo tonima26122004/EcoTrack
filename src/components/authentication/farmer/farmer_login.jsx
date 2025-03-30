@@ -71,7 +71,7 @@ const Flogin = () => {
               onClick={handleLogin}
               className="w-full bg-[#082B13] cursor-pointer text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
-              Log in →
+              Log in →</button>
 
               <label className="block mt-4 text-gray-700 font-medium">Password:</label>
               <input

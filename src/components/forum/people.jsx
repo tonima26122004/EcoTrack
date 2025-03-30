@@ -15,16 +15,32 @@ const CommunityPeople = () => {
       <h2 className="text-xl font-semibold mb-3">Community People</h2>
       
       {/* Search Bar */}
-      <div className="relative flex  mb-4">
-        <input
-          type="text"
-          placeholder="Eco_store"
-          className="w-full p-2 pl-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-600"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <img src="search.svg" alt="" />
-      </div>
+      <div className="relative flex justify-between w-full items-center mb-4">
+  {/* Search Icon */}
+  
+  {/* Search Input Field */}
+  <div className="relative flex items-center w-full mb-4">
+  {/* Search Input Field */}
+  <input
+    type="text"
+    placeholder="Eco_store"
+    className="w-full h-12 p-4 pr-12 text-left border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-600"
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
+
+  {/* Search Icon (Positioned on Right) */}
+  <img
+    src="search.svg"
+    alt="Search"
+    className="absolute right-4 w-6 h-6 text-gray-500"
+  />
+</div>
+
+
+
+</div>
+
 
       {/* User List */}
       <div className="flex flex-col gap-3">
