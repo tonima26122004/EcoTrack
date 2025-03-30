@@ -97,7 +97,7 @@ const Fregister = () => {
                 required
               />
 
-<<<<<<< HEAD
+
 
             {/* Sign Up Button */}
             <button
@@ -106,9 +106,7 @@ const Fregister = () => {
             >
               Sign up →
             </button>
-=======
-=======
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
+
               <button
                 type="submit"
                 className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full hover:bg-[#06421A]"
@@ -116,38 +114,40 @@ const Fregister = () => {
                 Sign up →
               </button>
             </form>
-<<<<<<< HEAD
 
 
-            <p className="text-center mt-3 text-gray-600">
+
+
+            <p className="text-center mt-3 text-gray-600"></p>
 
               Already have an account?{" "}
               <a href="/flogin" className="text-[#082B13] cursor-pointer font-semibold">
                 Log In
               </a>
 
-              Already have an account? <a href="/flogin" className="text-[#082B13] font-semibold">Log In</a>
-
-=======
+              <p>Already have an account? <a href="/flogin" className="text-[#082B13] font-semibold">Log In</a>
+            </p>
 
             <p className="text-center mt-3 text-gray-600">
               Already have an account? <a href="/flogin" className="text-[#082B13] font-semibold">Log In</a>
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
+
             </p>
 
             <div className="mt-1 flex flex-col items-center">
               <span className="text-gray-500">or</span>
-<<<<<<< HEAD
+
+              <button onClick={handleGoogleSignUp} className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
+                <img src="google.svg" alt="Google" className="w-5 h-5" /></button>
+
+
 
              
 
               <button onClick={handleGoogleSignUp} className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
                 <img src="google.svg" alt="Google" className="w-5 h-5" />
-
-=======
+              </button>
               <button onClick={handleGoogleSignUp} className="mt-2 flex items-center gap-2 border px-5 py-3 rounded-full text-gray-700 shadow-md">
                 <img src="google.svg" alt="Google" className="w-5 h-5" />
->>>>>>> 5178fbde4b014cf47af85c94235e84944b48a163
                 Sign up with Google
               </button>
             </div>

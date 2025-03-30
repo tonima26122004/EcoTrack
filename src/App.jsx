@@ -6,21 +6,25 @@ import Ecotalk_carbon from './components/chat/Ecotalk_carbon';
 import Ecotalk_diesease from './components/chat/Ecotalk_diesease';
 import Ecotalk_identification from './components/chat/Ecotalk_identification';
 import Forum from './components/forum/forum';
+import Landing from './components/landing/landing';
 import Login from './components/authentication/login/login';
 import Fregister from './components/authentication/farmer/farmer_register';
 import Flogin from './components/authentication/farmer/farmer_login';
 import Uregister from './components/authentication/user/user_register';
 import Ulogin from './components/authentication/user/user_login';
-import Fnav from './components/farmer_console/fnav';
+
 import Farmer from './components/farmer_console/farmer';
 import MarketPrices from './components/farmer_console/market';
 import Harb from './components/harb/Harb';
+import Chatbot from './components/chatbot/chatbot';
 function App() {
   return (
 
 <div>
   <Router>
     <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/chatbot" element={<Chatbot />} />
       <Route path="/fregister" element={<Fregister />} />
       <Route path="/flogin" element={<Flogin />} />
       <Route path="/market" element={<MarketPrices />} />
