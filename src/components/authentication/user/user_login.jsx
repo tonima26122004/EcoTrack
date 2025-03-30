@@ -79,10 +79,9 @@ const Ulogin = () => {
             {/* Log In Button */}
 
 
+
             <a href="/Chat">
-              <button className="w-full cursor-pointer bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
-                Log in →
-              </button>
+              
             </a>
 
             <button
