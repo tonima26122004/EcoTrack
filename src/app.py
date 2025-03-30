@@ -1,64 +1,70 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import os
+from PIL import Image
+import io
 import numpy as np
-import tensorflow as tf
-
-# Disable GPU to avoid CUDA errors on Render
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+import os
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend requests
+CORS(app)
 
-# Load your ML model
-try:
-    model = tf.keras.models.load_model('plant_disease_model.h5')
-    print("Model loaded successfully")
-except Exception as e:
-    print(f"Error loading model: {e}")
-    model = None
+# Configuration
+UPLOAD_FOLDER = 'uploads'
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
-@app.route("/predict", methods=["POST"])
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg'}
+
+@app.route('/predict', methods=['POST'])
 def predict():
-    if 'file' not in request.files:  # Changed from 'image' to 'file'
-        return jsonify({'error': 'No file uploaded'}), 400
-
-    file = request.files['file']  # Changed from 'image' to 'file'
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+    
+    file = request.files['file']
+    
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
+    
+    if not allowed_file(file.filename):
+        return jsonify({'error': 'Allowed file types: PNG, JPG, JPEG'}), 400
 
     try:
-        # Save the file temporarily to process it
-        temp_path = "temp_image.jpg"
-        file.save(temp_path)
+        # Read and validate image
+        image_bytes = file.read()
+        image = Image.open(io.BytesIO(image_bytes))
         
-        img = tf.keras.preprocessing.image.load_img(temp_path, target_size=(256, 256))
-        img_array = tf.keras.preprocessing.image.img_to_array(img) / 255.0
-        img_array = tf.expand_dims(img_array, axis=0)
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
         
-        # Clean up the temp file
-        os.remove(temp_path)
-    except Exception as e:
-        return jsonify({'error': f'Invalid image file: {e}'}), 400
+        # Preprocess image
+        image = image.resize((256, 256))
+        img_array = np.array(image) / 255.0
+        img_array = np.expand_dims(img_array, axis=0)
 
-    if model is None:
-        return jsonify({'error': 'Model not loaded'}), 500
+        # TODO: Replace with your actual model prediction
+        # model = tf.keras.models.load_model('plant_disease_model.h5')
+        # predictions = model.predict(img_array)
+        # predicted_class = int(np.argmax(predictions, axis=1)[0])
+        # confidence = float(np.max(predictions))
+        
+        # Mock response for testing
+        predicted_class = 11  # Grape Black Rot
+        confidence = 0.92    # Example confidence
 
-    try:
-        predictions = model.predict(img_array)
-        predicted_class = int(np.argmax(predictions, axis=1)[0])
-        confidence = float(np.max(predictions))
         return jsonify({
-            'predicted_class': predicted_class, 
+            'predicted_class': predicted_class,
             'confidence': confidence,
             'status': 'success'
         })
+
     except Exception as e:
-        return jsonify({'error': f'Prediction error: {e}'}), 500
+        return jsonify({'error': f'Image processing error: {str(e)}'}), 500
 
-@app.route("/health", methods=["GET"])
+@app.route('/health', methods=['GET'])
 def health_check():
-    return jsonify({"status": "healthy", "model_loaded": model is not None})
+    return jsonify({'status': 'healthy'})
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
