@@ -77,12 +77,21 @@ const Ulogin = () => {
             </div>
 
             {/* Log In Button */}
+
+
+            <a href="/Chat">
+              <button className="w-full cursor-pointer bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]">
+                Log in →
+              </button>
+            </a>
+
             <button
               onClick={handleLogin}
               className="w-full bg-[#082B13] text-white mt-6 py-3 rounded-full flex justify-center items-center gap-2 hover:bg-[#082B13]"
             >
               Log in →
             </button>
+
 
             {/* Sign Up Option */}
             <p className="text-center mt-3 text-gray-600">

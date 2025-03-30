@@ -25,6 +25,7 @@
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.4.0",
     "save": "^2.9.0",
+    "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
